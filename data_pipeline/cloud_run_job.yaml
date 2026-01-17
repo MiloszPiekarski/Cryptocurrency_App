@@ -1,0 +1,28 @@
+apiVersion: run.googleapis.com/v1
+kind: Job
+metadata:
+  name: market-ingestor-job
+  annotations:
+    run.googleapis.com/launch-stage: BETA
+spec:
+  template:
+    spec:
+      taskCount: 1
+      template:
+        spec:
+          containers:
+          - image: gcr.io/YOUR_PROJECT_ID/data-ingestor:latest
+            resources:
+              limits:
+                cpu: "1000m"
+                memory: "512Mi"
+            env:
+            - name: PYTHONUNBUFFERED
+              value: "1"
+            # Add other env vars here (DB creds should ideally be in Secret Manager)
+          
+          # Max duration: 24h (86400s). 
+          # For true infinite running, consider Cloud Run Service with "min-instances: 1" and "cpu-throttling: false"
+          timeoutSeconds: 86400
+          
+          # serviceAccountName (Using default)

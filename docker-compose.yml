@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # 🧠 AI Backend Service
+  ai_engine:
+    build:
+      context: ./services/ai_engine
+      dockerfile: Dockerfile
+    container_name: turbo_ai_engine
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+    volumes:
+      - ./services/ai_engine/data:/app/data # Persist models
+    restart: always
+
+  # 💻 Frontend Web App
+  web_app:
+    build:
+      context: ./web_app/frontend
+      dockerfile: Dockerfile
+    container_name: turbo_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - ai_engine
+    restart: always
