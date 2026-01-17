@@ -1,5 +1,7 @@
-# CASH MAELSTROM - PLEASE READ - User_Documentation_PL.pdf
+# CASH MAELSTROM
  AI-Native Institutional Trading Platform
+
+## PLEASE READ - User_Documentation_PL.pdf
 
 Cloud Native Architecture (v1.0.0)
 
