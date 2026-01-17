@@ -1,4 +1,4 @@
-# CASH MAELSTROM (Turboplan X)
+# CASH MAELSTROM - PLEASE READ - User_Documentation_PL.pdf
  AI-Native Institutional Trading Platform
 
 Cloud Native Architecture (v1.0.0)
@@ -33,5 +33,3 @@ This script will:
 ## Access Points
 Once the system is running, you can access the interface at http://localhost:3000
 
-## Security Note
-Do not commit sensitive keys, passwords, or service account JSON files to the repository. Ensure your .gitignore is properly configured to exclude these files.
